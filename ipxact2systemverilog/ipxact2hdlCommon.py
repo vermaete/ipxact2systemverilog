@@ -23,13 +23,15 @@ import io
 import math
 import os
 import sys
+import json
 import xml.etree.ElementTree as ETree
 from mdutils.mdutils import MdUtils
 from rstcloth import RstCloth
 
 DEFAULT_INI = {'global': {'unusedholes': 'yes',
                           'onebitenum': 'no'},
-               'vhdl': {'PublicConvFunct': 'no'}}
+               'vhdl': {'PublicConvFunct': 'no'},
+               'rst': {'wavedrom': 'no'}}
 
 
 def sortRegisterAndFillHoles(regName,
@@ -246,6 +248,26 @@ class rstAddressBlock(addressBlockClass):
             if reg.resetValue:
                 _headers.append('Reset')
             _headers.append('Description')
+
+            # insert the wavedrom bitfield register (only when using Sphinx)
+            if self.config['rst'].getboolean('wavedrom'):
+                py = []
+                for fieldIndex in reversed(list(range(len(reg.fieldNameList)))):
+                    f = {}
+                    f['name'] = reg.fieldNameList[fieldIndex]
+                    f['bits'] = reg.bitWidthList[fieldIndex]
+                    if reg.resetValue:
+                        temp = (int(reg.resetValue, 0) >> reg.bitOffsetList[fieldIndex])
+                        mask = (2 ** reg.bitWidthList[fieldIndex]) - 1
+                        temp &= mask
+                        f['attr'] = temp
+                    py.append(f)
+                wd = {'reg': py}
+                r.newline()
+                r.directive(name="wavedrom",
+                            content=json.dumps(wd, indent=1))
+            
+            # table of the register
             r.table(header=_headers,
                     data=reg_table)
 

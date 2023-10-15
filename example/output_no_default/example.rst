@@ -40,6 +40,14 @@ reg0
 :Access: read-write
 :Description: write something useful for reg0
 
+.. wavedrom::
+
+   {  "reg": [   {    "name": "byte3",    "bits": 8,    "attr": 0   },
+   {    "name": "byte2",    "bits": 8,    "attr": 0   },   {    "name":
+   "byte1",    "bits": 8,    "attr": 0   },   {    "name": "byte0",
+   "bits": 8,    "attr": 0   }  ] }
+
+
 +---------+--------------+---------+-----------------------------------+
 | Bits    | Field name   | Reset   | Description                       |
 +=========+==============+=========+===================================+
@@ -61,6 +69,12 @@ reg1
 :Access: read-write
 :Description:
 
+.. wavedrom::
+
+   {  "reg": [   {    "name": "field0",    "bits": 32,    "attr": 1   }
+   ] }
+
+
 +--------+--------------+------------+-----------------------------------+
 | Bits   | Field name   | Reset      | Description                       |
 +========+==============+============+===================================+
@@ -75,6 +89,14 @@ reg2
 :Reset Value: 0x00000001
 :Access: read-write
 :Description: write something useful for reg2
+
+.. wavedrom::
+
+   {  "reg": [   {    "name": "monkey2",    "bits": 2,    "attr": 0   },
+   {    "name": "monkey",    "bits": 2,    "attr": 0   },   {    "name":
+   "power2",    "bits": 1,    "attr": 0   },   {    "name": "power",
+   "bits": 1,    "attr": 1   }  ] }
+
 
 +--------+--------------+---------+-----------------------------------------+
 | Bits   | Field name   | Reset   | Description                             |
@@ -145,6 +167,12 @@ reg3
 :Access: read-write
 :Description: write something useful for reg3
 
+.. wavedrom::
+
+   {  "reg": [   {    "name": "field0",    "bits": 32,    "attr": 1   }
+   ] }
+
+
 +--------+--------------+------------+-----------------------------------+
 | Bits   | Field name   | Reset      | Description                       |
 +========+==============+============+===================================+
@@ -161,6 +189,12 @@ reg4
 :Description: reg4 is a very useful register. It can take down the moon
    when configured correctly.
 
+.. wavedrom::
+
+   {  "reg": [   {    "name": "reg4",    "bits": 32,    "attr": 12   }
+   ] }
+
+
 +--------+--------------+------------+---------------+
 | Bits   | Field name   | Reset      | Description   |
 +========+==============+============+===============+
@@ -176,6 +210,11 @@ reg5
 :Description: reg5 is as useful as reg4 but without a reset value
    defined.
 
+.. wavedrom::
+
+   {  "reg": [   {    "name": "reg5",    "bits": 32   }  ] }
+
+
 +--------+--------------+---------------+
 | Bits   | Field name   | Description   |
 +========+==============+===============+
@@ -189,6 +228,11 @@ reg6
 :Address: 0x6
 :Access: read-only
 :Description: reg6 is a read only register.
+
+.. wavedrom::
+
+   {  "reg": [   {    "name": "reg6",    "bits": 32   }  ] }
+
 
 +--------+--------------+---------------+
 | Bits   | Field name   | Description   |
@@ -204,6 +248,13 @@ reg7
 :Reset Value: 0x00000000
 :Access: read-write
 :Description: write something useful for reg7
+
+.. wavedrom::
+
+   {  "reg": [   {    "name": "nibble2",    "bits": 4,    "attr": 0   },
+   {    "name": "nibble1",    "bits": 4,    "attr": 0   },   {
+   "name": "nibble0",    "bits": 4,    "attr": 0   }  ] }
+
 
 +---------+--------------+---------+------------------------------------+
 | Bits    | Field name   | Reset   | Description                        |
@@ -223,6 +274,12 @@ reg8
 :Reset Value: 0x00000000
 :Access: read-write
 :Description: register with empty and no descriptions of the fields
+
+.. wavedrom::
+
+   {  "reg": [   {    "name": "nibble1",    "bits": 4,    "attr": 0   },
+   {    "name": "nibble0",    "bits": 4,    "attr": 0   }  ] }
+
 
 +--------+--------------+---------+---------------+
 | Bits   | Field name   | Reset   | Description   |
