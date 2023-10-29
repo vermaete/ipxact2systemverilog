@@ -27,7 +27,6 @@ gen:
 	rst2html5.py example/output/example.rst example/output/example.html
 	pandoc -s example/output/example.rst -o example/output/example.rtf
 	pandoc -s example/output/example.rst -o example/output/example.docx
-	#sphinx-build example/output example/output/sphinx -q -b latex
 
         # default config
 	bin/ipxact2systemverilog --srcFile example/input/test.xml --destDir example/output_default  --config example/input/default.ini
@@ -35,7 +34,6 @@ gen:
 	bin/ipxact2md --srcFile example/input/test.xml --destDir example/output_default  --config example/input/default.ini
 	bin/ipxact2vhdl --srcFile example/input/test.xml --destDir example/output_default  --config example/input/default.ini
 	bin/ipxact2c --srcFile example/input/test.xml --destDir example/output_default  --config example/input/default.ini
-	#sphinx-build example/output_default example/output_default/sphinx -q -b latex
 
         # no default config
 	bin/ipxact2systemverilog --srcFile example/input/test.xml --destDir example/output_no_default  --config example/input/no_default.ini
@@ -43,7 +41,12 @@ gen:
 	bin/ipxact2md --srcFile example/input/test.xml --destDir example/output_no_default  --config example/input/no_default.ini
 	bin/ipxact2vhdl --srcFile example/input/test.xml --destDir example/output_no_default  --config example/input/no_default.ini
 	bin/ipxact2c --srcFile example/input/test.xml --destDir example/output_no_default  --config example/input/no_default.ini
-	#sphinx-build example/output_no_default example/output_no_default/sphinx -q -b latex
+
+        # RestructuredText and  Sphinx
+	bin/ipxact2rst --srcFile example/input/test.xml --destDir example/output_sphinx  --config example/input/sphinx.ini
+	sphinx-build example/output_sphinx example/output_sphinx/build -q -b latex
+	make -C example/output_sphinx/build
+	cp example/output_sphinx/build/example.pdf example/output_sphinx
 
 compile: 
 	test -d work || vlib work

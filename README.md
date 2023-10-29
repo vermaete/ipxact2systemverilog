@@ -59,6 +59,13 @@ xmllint --noout --schema ipxact2systemverilog/xml/component.xsd  example/input/t
 pip install docutils lxml mdutils
 ```
 
+For Sphinx
+
+```
+apt install python3-sphinx
+pip install sphinxcontrib-wavedrom
+```
+
 ## Dependencies used by makefile
 
 These are not needed for ipxact2systemverilog, but used for generating
