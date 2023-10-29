@@ -55,10 +55,12 @@ Base Address: 0x0
 **Description** write something useful for reg2
 |Bits|Field name|Reset|Description|
 | :--- | :--- | :--- | :--- |
+|[9:8]|monkey4|0x0|which monkey|
+|[7:6]|monkey3|0x0|which monkey|
 |[5:4]|monkey2|0x0|which monkey|
 |[3:2]|monkey|0x0|which monkey|
-|[1:1]|power2|0x0|write something useful for field power2|
-|[0:0]|power|0x1|write something useful for field power|
+|1|power2|0x0|write something useful for field power2|
+|0|power|0x1|write something useful for field power|
 
 #### power
 
@@ -89,6 +91,22 @@ Base Address: 0x0
 |chimp|0x0||
 |gorilla|0x1||
 |phb|0x2||
+
+#### monkey3
+
+|Name|Value|Description|
+| :--- | :--- | :--- |
+|phb|0x0||
+|gorilla|0x1||
+|chimp|0x2||
+
+#### monkey4
+
+|Name|Value|Description|
+| :--- | :--- | :--- |
+|chimp|0x0||
+|gorilla|0x1||
+|bonobo|0x2||
 
 ### reg3
   
@@ -142,7 +160,7 @@ Base Address: 0x0
 |Bits|Field name|Reset|Description|
 | :--- | :--- | :--- | :--- |
 |[19:16]|nibble2|0x0|write something useful for nibble2|
-|[11:8]|nibble1|0x0|write something useful for nibble1|
+|[11:8]|nibble1|0x0||
 |[3:0]|nibble0|0x0|write something useful for nibble0|
 
 ### reg8
